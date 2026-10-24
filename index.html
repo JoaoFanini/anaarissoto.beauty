@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ana Arissoto Beauty em Uberlândia: cílios, design de sobrancelhas, unhas, maquiagem e curso. Agende pelo WhatsApp.">
+<title>Ana Arissoto Beauty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: monograma AA em preto e branco como identidade, rosa das unhas dela como único acento; hero editorial, faixa de serviços em movimento, galeria por área, agendamento que monta a mensagem do WhatsApp */
+:root{
+  --ink:#151314;
+  --paper:#faf8f8;
+  --card:#ffffff;
+  --blush:#e8c4be;
+  --blush-deep:#b9786e;
+  --muted:#6f6668;
+  --line:#e7e0df;
+  --on-ink:#f6f1f0;
+  --wa:#1f9d55;
+  --display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --body:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f3eeed;--paper:#121011;--card:#1c191a;--blush:#d7aaa2;--blush-deep:#e3b2a9;--muted:#aea4a6;--line:#2c2728;--on-ink:#151314;color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#f3eeed;--paper:#121011;--card:#1c191a;--blush:#d7aaa2;--blush-deep:#e3b2a9;--muted:#aea4a6;--line:#2c2728;--on-ink:#151314;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body)}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.02;text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blush-deep);outline-offset:3px}
+.eyebrow{font:500 .74rem var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--blush-deep)}
+
+/* topo */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px}
+.mono{font-family:var(--display);font-size:1.7rem;letter-spacing:-.06em;line-height:1;display:flex;align-items:center;gap:12px}
+.mono span{font-family:var(--body);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 22px;font:500 .92rem var(--body);letter-spacing:.04em;text-decoration:none;cursor:pointer;border:1px solid var(--ink);transition:transform .3s var(--ease),background .3s,color .3s}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-block:24px 64px}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:28px}}
+.hero-txt{display:grid;gap:22px;min-width:0}
+.hero h1{font-size:clamp(3.4rem,10vw,7rem);letter-spacing:-.03em}
+.hero h1 em{font-style:italic;color:var(--blush-deep)}
+.roles{font:300 1.05rem var(--body);letter-spacing:.18em;text-transform:uppercase}
+.hero p{margin:0;max-width:44ch;color:var(--muted);font-size:1.08rem}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-size:.85rem;justify-self:start}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--blush-deep);display:inline-block}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-art{position:relative;max-width:420px;width:100%;justify-self:center;aspect-ratio:4/5}
+.hero-art .frame{position:absolute;inset:0;border-radius:200px 200px 16px 16px;overflow:hidden;background:var(--blush)}
+.hero-art .frame img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-art .badge{position:absolute;left:-18px;bottom:28px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.hero-art .badge img{width:44px;height:44px;border-radius:50%;object-fit:cover;filter:grayscale(1)}
+.hero-art .badge b{display:block;font-weight:600;font-size:.9rem}
+.hero-art .badge small{color:var(--muted);font-size:.78rem}
+@media (max-width:480px){.hero-art .badge{left:8px}}
+
+/* entrada animada */
+@media (prefers-reduced-motion:no-preference){
+  .in{animation:rise .9s var(--ease) both}
+  .d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.28s}.d4{animation-delay:.38s}.d5{animation-delay:.5s}
+  .hero-art .frame{animation:arch 1.1s var(--ease) both .15s}
+  .hero-art .badge{animation:rise .8s var(--ease) both .7s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes arch{from{clip-path:inset(100% 0 0 0 round 200px 200px 16px 16px)}to{clip-path:inset(0 0 0 0 round 200px 200px 16px 16px)}}
+  @supports (animation-timeline:view()){
+    .reveal{animation:lift linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+    @keyframes lift{from{opacity:.25;transform:translateY(28px)}to{opacity:1;transform:none}}
+  }
+}
+
+/* faixa de serviços */
+.band{background:var(--ink);color:var(--on-ink);overflow:hidden;padding-block:16px}
+.track{display:flex;gap:40px;width:max-content;font-family:var(--display);font-style:italic;font-size:1.5rem;white-space:nowrap}
+.track span::after{content:"✦";font-style:normal;font-size:.8rem;margin-left:40px;color:var(--blush)}
+@media (prefers-reduced-motion:no-preference){.track{animation:slide 28s linear infinite}@keyframes slide{to{transform:translateX(-50%)}}}
+
+section{padding-block:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:620px}
+.sec-head h2{font-size:clamp(2.2rem,5.5vw,3.4rem);letter-spacing:-.02em}
+.sec-head p{margin:0;color:var(--muted)}
+
+/* serviços */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:10px;align-content:start;transition:transform .35s var(--ease),border-color .35s}
+.svc:hover{transform:translateY(-4px);border-color:var(--blush)}
+.svc .ico{font-size:1.5rem}
+.svc h3{font-size:1.7rem}
+.svc p{margin:0;color:var(--muted);font-size:.95rem}
+.svc .price{margin-top:6px;padding-top:12px;border-top:1px solid var(--line);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--blush-deep)}
+.svc.curso{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.svc.curso p{color:inherit;opacity:.75}
+.svc.curso .price{border-color:rgba(255,255,255,.18);color:var(--blush)}
+
+/* galeria */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 18px;font:500 .9rem var(--body);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:640px){.gal{grid-template-columns:repeat(2,1fr)}}
+.ph{margin:0;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:var(--blush)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.ph:hover img{transform:scale(1.05)}
+.ph figcaption{position:absolute;left:10px;bottom:10px;background:rgba(21,19,20,.72);color:#fff;font-size:.78rem;letter-spacing:.06em;padding:6px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+.ph.soon{display:grid;place-items:center;text-align:center;padding:20px;background:var(--card);border:1px dashed var(--blush-deep)}
+.ph.soon b{font-family:var(--display);font-weight:400;font-size:1.4rem;display:block}
+.ph.soon small{color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.gal.show .ph{animation:pop .6s var(--ease) both}.gal.show .ph:nth-child(2){animation-delay:.08s}.gal.show .ph:nth-child(3){animation-delay:.16s}@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}}
+
+/* agendamento */
+.book{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+@media (max-width:860px){.book{grid-template-columns:1fr}}
+form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:14px;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:.92rem;cursor:pointer;transition:all .25s}
+.chip input:checked + span{background:var(--blush);border-color:var(--blush-deep);color:#151314}
+.chip input:focus-visible + span{outline:2px solid var(--blush-deep);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.86rem;font-weight:500}
+.lbl{font-size:.86rem;font-weight:500}
+input,select,textarea{font:inherit;font-weight:400;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%;min-width:0}
+textarea{min-height:70px;resize:vertical}
+.make-box{display:grid;gap:12px;background:color-mix(in srgb,var(--blush) 22%,transparent);border-radius:14px;padding:14px}
+.make-box[hidden]{display:none}
+.preview{white-space:pre-wrap;font-size:.86rem;color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:12px;background:var(--paper)}
+.err{color:#c0392b;font-weight:500;font-size:.88rem}
+.btn-wa{background:var(--wa);border-color:var(--wa);color:#fff;font-size:1rem;padding:15px}
+.side{display:grid;gap:16px}
+.info{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:8px}
+.info h3{font-size:1.5rem}
+.info p{margin:0;color:var(--muted)}
+.info .big{font-family:var(--display);font-size:1.6rem;color:var(--ink)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;color:var(--muted);font-size:.95rem}
+.steps li::before{counter-increment:s;content:counter(s);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--paper);font-family:var(--display);font-size:1rem}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:24px;font-size:.85rem;color:var(--muted)}
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <nav class="nav">
+    <div class="mono">AA <span>Ana Arissoto Beauty</span></div>
+    <a class="btn btn-line" href="#agendar">Agendar</a>
+  </nav>
+  <div class="hero">
+    <div class="hero-txt">
+      <span class="pill in d1"><i></i> Somente com horário marcado</span>
+      <h1 class="in d2">Realçando sua beleza <em>natural</em></h1>
+      <div class="roles in d3">Maquiadora · Lash · Designer</div>
+      <p class="in d4">Cílios, design de sobrancelhas, unhas e maquiagem para o seu dia e para os seus eventos. Atendimento com a Ana Julya, aqui em Uberlândia.</p>
+      <div class="actions in d5">
+        <a class="btn btn-dark" href="#agendar">Agendar horário</a>
+        <a class="btn btn-line" href="#trabalhos">Ver trabalhos</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="frame"><img src="img/unha2.jpg" alt="Unhas em tom nude com flor e detalhe dourado feitas pela Ana"></div>
+      <div class="badge"><img src="img/perfil.jpg" alt="Ana Julya"><div><b>Ana Julya</b><small>@anaarissoto.beauty</small></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true">
+  <div class="track">
+    <span>Cílios</span><span>Design de sobrancelhas</span><span>Unhas</span><span>Maquiagem</span><span>Curso</span>
+    <span>Cílios</span><span>Design de sobrancelhas</span><span>Unhas</span><span>Maquiagem</span><span>Curso</span>
+  </div>
+</div>
+
+<main>
+  <section id="servicos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2>Tudo pro seu olhar e pras suas mãos</h2>
+        <p>Escolha o serviço e agende pelo WhatsApp. Atendimento só com horário marcado.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc reveal"><div class="ico">🦋</div><h3>Cílios</h3><p>Extensão de cílios para um olhar marcado todos os dias, sem rímel.</p><div class="price">Valor sob consulta</div></article>
+        <article class="svc reveal"><div class="ico">🖌️</div><h3>Sobrancelha</h3><p>Design de sobrancelhas pensado para o formato do seu rosto.</p><div class="price">Valor sob consulta</div></article>
+        <article class="svc reveal"><div class="ico">💅</div><h3>Unhas</h3><p>Unhas com acabamento delicado, do francesinha ao detalhe com flor e dourado.</p><div class="price">Valor sob consulta</div></article>
+        <article class="svc reveal"><div class="ico">🪞</div><h3>Maquiagem</h3><p>Make para festas, formaturas e eventos. Peça seu orçamento com a data.</p><div class="price">Orçamento pelo WhatsApp</div></article>
+        <article class="svc curso reveal"><div class="ico">🤍</div><h3>Curso</h3><p>Quer aprender com a Ana? Fale com ela para saber das próximas turmas.</p><div class="price">Vagas pelo WhatsApp</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabalhos" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Trabalhos</span>
+        <h2>Feito pela Ana</h2>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" id="t-unhas" aria-selected="true" data-g="unhas">Unhas</button>
+        <button class="tab" role="tab" id="t-olhar" aria-selected="false" data-g="olhar">Sobrancelha, cílios e make</button>
+      </div>
+      <div class="gal show" id="g-unhas">
+        <figure class="ph"><img src="img/unha1.jpg" alt="Unhas francesinha branca com flor" loading="lazy"><figcaption>Francesinha com flor</figcaption></figure>
+        <figure class="ph"><img src="img/unha2.jpg" alt="Unhas nude com flor e dourado" loading="lazy"><figcaption>Nude com dourado</figcaption></figure>
+        <figure class="ph"><img src="img/unha3.jpg" alt="Unhas com francesinha azul e decoração" loading="lazy"><figcaption>Francesinha azul</figcaption></figure>
+      </div>
+      <div class="gal" id="g-olhar" hidden>
+        <figure class="ph"><img src="img/make1.jpg" alt="Cliente com sobrancelha e cílios feitos pela Ana" loading="lazy"><figcaption>Sobrancelha e cílios</figcaption></figure>
+        <figure class="ph soon"><div><b>Cílios</b><small>Mais fotos em breve</small></div></figure>
+        <figure class="ph soon"><div><b>Maquiagem</b><small>Mais fotos em breve</small></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="agendar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Agendamento</span>
+        <h2>Marque seu horário</h2>
+        <p>Preencha e a mensagem já vai pronta para o WhatsApp da Ana.</p>
+      </div>
+      <div class="book">
+        <form id="f" novalidate>
+          <div class="lbl">Qual serviço?</div>
+          <div class="chips" role="radiogroup" aria-label="Serviço">
+            <label class="chip"><input type="radio" name="svc" id="s-cilios" value="Cílios" checked><span>🦋 Cílios</span></label>
+            <label class="chip"><input type="radio" name="svc" id="s-sobr" value="Sobrancelha"><span>🖌️ Sobrancelha</span></label>
+            <label class="chip"><input type="radio" name="svc" id="s-unha" value="Unhas"><span>💅 Unhas</span></label>
+            <label class="chip"><input type="radio" name="svc" id="s-make" value="Orçamento de maquiagem"><span>🪞 Maquiagem</span></label>
+            <label class="chip"><input type="radio" name="svc" id="s-curso" value="Curso"><span>🤍 Curso</span></label>
+          </div>
+          <label for="nome">Seu nome<input id="nome" value="Mariana" placeholder="Como podemos te chamar"></label>
+          <div class="row" id="slot">
+            <label for="dia">Dia de preferência<input id="dia" type="date"></label>
+            <label for="periodo">Período<select id="periodo"><option>Manhã</option><option>Tarde</option><option>Noite</option></select></label>
+          </div>
+          <div class="make-box" id="makeBox" hidden>
+            <div class="row">
+              <label for="evento">Tipo de evento<select id="evento"><option>Casamento</option><option>Formatura</option><option>Aniversário</option><option>Ensaio de fotos</option><option>Outro</option></select></label>
+              <label for="dataEv">Data do evento<input id="dataEv" type="date"></label>
+            </div>
+            <div class="row">
+              <label for="pronta">Precisa estar pronta às<input id="pronta" type="time" value="18:00"></label>
+              <label for="pessoas">Quantas pessoas<input id="pessoas" type="number" min="1" value="1"></label>
+            </div>
+          </div>
+          <label for="obs">Observação (opcional)<textarea id="obs" placeholder="Ex.: primeira vez fazendo cílios"></textarea></label>
+          <div class="preview" id="prev" aria-live="polite"></div>
+          <div class="err" id="err" hidden></div>
+          <button class="btn btn-wa" type="submit">Enviar pelo WhatsApp</button>
+        </form>
+        <div class="side">
+          <div class="info reveal">
+            <span class="eyebrow">Como funciona</span>
+            <ol class="steps">
+              <li><span>Você escolhe o serviço e manda a mensagem.</span></li>
+              <li><span>A Ana confirma o horário e te passa o endereço.</span></li>
+              <li><span>É só chegar no horário marcado.</span></li>
+            </ol>
+          </div>
+          <div class="info reveal">
+            <span class="eyebrow">Contato</span>
+            <div class="big">(34) 98401-6226</div>
+            <p>Atendimento somente com horário marcado, em Uberlândia - MG.</p>
+            <a class="btn btn-line" href="https://www.instagram.com/anaarissoto.beauty/" target="_blank" rel="noopener">Ver no Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>Ana Arissoto Beauty · Uberlândia - MG</span><span>Prévia criada por F9 Coding</span></div>
+</footer>
+
+<a class="btn btn-wa fab" href="https://wa.me/5534984016226?text=Ol%C3%A1%2C%20Ana!%20Vim%20pelo%20site%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});
+      ['unhas','olhar'].forEach(function(g){var el=$('g-'+g);el.hidden=g!==t.dataset.g;el.classList.remove('show');void el.offsetWidth;if(!el.hidden)el.classList.add('show')});
+    });
+  });
+  var d=new Date();d.setDate(d.getDate()+1);if(d.getDay()===0)d.setDate(d.getDate()+1);
+  $('dia').value=d.toISOString().slice(0,10);
+  var ev=new Date();ev.setDate(ev.getDate()+21);$('dataEv').value=ev.toISOString().slice(0,10);
+  function svc(){return document.querySelector('input[name=svc]:checked').value}
+  function br(v){if(!v)return'-';var p=v.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+  function msg(){
+    var s=svc(),l=['Olá, Ana! Vim pelo site.','Nome: '+($('nome').value||'-')];
+    if(s==='Orçamento de maquiagem'){
+      l.push('Quero um orçamento de maquiagem.','Evento: '+$('evento').value,'Data: '+br($('dataEv').value),'Pronta às: '+($('pronta').value||'-'),'Pessoas: '+($('pessoas').value||'1'));
+    }else if(s==='Curso'){
+      l.push('Tenho interesse no curso. Quando é a próxima turma?');
+    }else{
+      l.push('Serviço: '+s,'Dia de preferência: '+br($('dia').value)+' ('+$('periodo').value.toLowerCase()+')');
+    }
+    if($('obs').value.trim())l.push('Obs.: '+$('obs').value.trim());
+    return l.join('\n');
+  }
+  function upd(){var s=svc();$('makeBox').hidden=s!=='Orçamento de maquiagem';$('slot').hidden=(s==='Orçamento de maquiagem'||s==='Curso');$('prev').textContent=msg()}
+  $('f').addEventListener('input',upd);$('f').addEventListener('change',upd);upd();
+  $('f').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!$('nome').value.trim()){$('err').textContent='Coloque seu nome para a Ana saber quem é.';$('err').hidden=false;return}
+    $('err').hidden=true;
+    var a=document.createElement('a');a.href='https://wa.me/5534984016226?text='+encodeURIComponent(msg());a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+  });
+})();
+</script>
+</body>
+</html>
